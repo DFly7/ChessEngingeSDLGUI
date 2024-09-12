@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9046648C2C91BBD300025676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9046648B2C91BBD300025676 /* Assets.xcassets */; };
+		9046649C2C91BC9000025676 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9046649B2C91BC9000025676 /* SDL2.framework */; };
+		9046649D2C91BC9000025676 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9046649B2C91BC9000025676 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		904664AD2C91C2E000025676 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904664AC2C91C2E000025676 /* SDL2_image.framework */; };
+		904664AE2C91C2E000025676 /* SDL2_image.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 904664AC2C91C2E000025676 /* SDL2_image.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		904664B02C91C7CF00025676 /* GPTBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664AF2C91C7CF00025676 /* GPTBoard.cpp */; };
+		904664D92C91E2D900025676 /* View.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664D72C91E2D900025676 /* View.cpp */; };
+		904664F52C91E3E000025676 /* Bishop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664E62C91E3E000025676 /* Bishop.cpp */; };
+		904664F62C91E3E000025676 /* King.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664E72C91E3E000025676 /* King.cpp */; };
+		904664F72C91E3E000025676 /* Knight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664E82C91E3E000025676 /* Knight.cpp */; };
+		904664F82C91E3E000025676 /* Pawn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664E92C91E3E000025676 /* Pawn.cpp */; };
+		904664F92C91E3E000025676 /* Piece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664EA2C91E3E000025676 /* Piece.cpp */; };
+		904664FA2C91E3E000025676 /* Queen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664EB2C91E3E000025676 /* Queen.cpp */; };
+		904664FB2C91E3E000025676 /* Rook.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664EC2C91E3E000025676 /* Rook.cpp */; };
+		904664FC2C91E3E000025676 /* Controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664EF2C91E3E000025676 /* Controller.cpp */; };
+		904664FD2C91E3E000025676 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664F02C91E3E000025676 /* Model.cpp */; };
+		904664FE2C91E3E000025676 /* Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664F12C91E3E000025676 /* Move.cpp */; };
+		904664FF2C91E3E000025676 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904664F32C91E3E000025676 /* main.cpp */; };
+		9046650E2C9217AF00025676 /* 02_getting_an_image_on_the_screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9046650D2C9217AF00025676 /* 02_getting_an_image_on_the_screen.cpp */; };
+		904665112C921AE400025676 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9046650F2C921AE400025676 /* TextureManager.cpp */; };
+		9046651F2C92245B00025676 /* BKing.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 904665182C92245B00025676 /* BKing.jpeg */; };
+		904665202C92245B00025676 /* BKnight.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 904665192C92245B00025676 /* BKnight.jpeg */; };
+		904665212C92245B00025676 /* BPawn.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9046651A2C92245B00025676 /* BPawn.jpeg */; };
+		904665222C92245B00025676 /* BQueen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9046651B2C92245B00025676 /* BQueen.jpeg */; };
+		904665232C92245B00025676 /* BRook.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9046651C2C92245B00025676 /* BRook.jpeg */; };
+		904665252C924A6500025676 /* BBishop.png in Resources */ = {isa = PBXBuildFile; fileRef = 904665242C924A6500025676 /* BBishop.png */; };
+		9046652D2C92540600025676 /* WBishop.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 904665262C92540600025676 /* WBishop.jpeg */; };
+		9046652E2C92540600025676 /* WKing.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 904665272C92540600025676 /* WKing.jpeg */; };
+		9046652F2C92540600025676 /* WKnight.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 904665282C92540600025676 /* WKnight.jpeg */; };
+		904665302C92540600025676 /* WPawn.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 904665292C92540600025676 /* WPawn.jpeg */; };
+		904665312C92540600025676 /* WQueen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9046652A2C92540600025676 /* WQueen.jpeg */; };
+		904665322C92540600025676 /* WRook.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9046652B2C92540600025676 /* WRook.jpeg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9046649E2C91BC9000025676 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9046649D2C91BC9000025676 /* SDL2.framework in Embed Frameworks */,
+				904664AE2C91C2E000025676 /* SDL2_image.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		904664852C91BBD100025676 /* GUIChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUIChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9046648B2C91BBD300025676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		904664922C91BBD300025676 /* GUIChess.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GUIChess.entitlements; sourceTree = "<group>"; };
+		9046649B2C91BC9000025676 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
+		904664AC2C91C2E000025676 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2_image.framework; sourceTree = "<group>"; };
+		904664AF2C91C7CF00025676 /* GPTBoard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GPTBoard.cpp; sourceTree = "<group>"; };
+		904664D72C91E2D900025676 /* View.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = View.cpp; sourceTree = "<group>"; };
+		904664D82C91E2D900025676 /* View.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = View.hpp; sourceTree = "<group>"; };
+		904664DA2C91E3E000025676 /* Controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Controller.hpp; sourceTree = "<group>"; };
+		904664DB2C91E3E000025676 /* Model.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Model.hpp; sourceTree = "<group>"; };
+		904664DC2C91E3E000025676 /* Move.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Move.hpp; sourceTree = "<group>"; };
+		904664DE2C91E3E000025676 /* Bishop.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bishop.hpp; sourceTree = "<group>"; };
+		904664DF2C91E3E000025676 /* King.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = King.hpp; sourceTree = "<group>"; };
+		904664E02C91E3E000025676 /* Knight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Knight.hpp; sourceTree = "<group>"; };
+		904664E12C91E3E000025676 /* Pawn.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Pawn.hpp; sourceTree = "<group>"; };
+		904664E22C91E3E000025676 /* Piece.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Piece.hpp; sourceTree = "<group>"; };
+		904664E32C91E3E000025676 /* Queen.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Queen.hpp; sourceTree = "<group>"; };
+		904664E42C91E3E000025676 /* Rook.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Rook.hpp; sourceTree = "<group>"; };
+		904664E62C91E3E000025676 /* Bishop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bishop.cpp; sourceTree = "<group>"; };
+		904664E72C91E3E000025676 /* King.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = King.cpp; sourceTree = "<group>"; };
+		904664E82C91E3E000025676 /* Knight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Knight.cpp; sourceTree = "<group>"; };
+		904664E92C91E3E000025676 /* Pawn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pawn.cpp; sourceTree = "<group>"; };
+		904664EA2C91E3E000025676 /* Piece.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Piece.cpp; sourceTree = "<group>"; };
+		904664EB2C91E3E000025676 /* Queen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Queen.cpp; sourceTree = "<group>"; };
+		904664EC2C91E3E000025676 /* Rook.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rook.cpp; sourceTree = "<group>"; };
+		904664EF2C91E3E000025676 /* Controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Controller.cpp; sourceTree = "<group>"; };
+		904664F02C91E3E000025676 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
+		904664F12C91E3E000025676 /* Move.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Move.cpp; sourceTree = "<group>"; };
+		904664F32C91E3E000025676 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9046650D2C9217AF00025676 /* 02_getting_an_image_on_the_screen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = 02_getting_an_image_on_the_screen.cpp; sourceTree = "<group>"; };
+		9046650F2C921AE400025676 /* TextureManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextureManager.cpp; sourceTree = "<group>"; };
+		904665102C921AE400025676 /* TextureManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureManager.hpp; sourceTree = "<group>"; };
+		904665182C92245B00025676 /* BKing.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BKing.jpeg; sourceTree = "<group>"; };
+		904665192C92245B00025676 /* BKnight.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BKnight.jpeg; sourceTree = "<group>"; };
+		9046651A2C92245B00025676 /* BPawn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BPawn.jpeg; sourceTree = "<group>"; };
+		9046651B2C92245B00025676 /* BQueen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BQueen.jpeg; sourceTree = "<group>"; };
+		9046651C2C92245B00025676 /* BRook.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BRook.jpeg; sourceTree = "<group>"; };
+		904665242C924A6500025676 /* BBishop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BBishop.png; sourceTree = "<group>"; };
+		904665262C92540600025676 /* WBishop.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WBishop.jpeg; sourceTree = "<group>"; };
+		904665272C92540600025676 /* WKing.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WKing.jpeg; sourceTree = "<group>"; };
+		904665282C92540600025676 /* WKnight.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WKnight.jpeg; sourceTree = "<group>"; };
+		904665292C92540600025676 /* WPawn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WPawn.jpeg; sourceTree = "<group>"; };
+		9046652A2C92540600025676 /* WQueen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WQueen.jpeg; sourceTree = "<group>"; };
+		9046652B2C92540600025676 /* WRook.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WRook.jpeg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		904664822C91BBD100025676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9046649C2C91BC9000025676 /* SDL2.framework in Frameworks */,
+				904664AD2C91C2E000025676 /* SDL2_image.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9046647C2C91BBD100025676 = {
+			isa = PBXGroup;
+			children = (
+				904664872C91BBD100025676 /* GUIChess */,
+				904664862C91BBD100025676 /* Products */,
+				9046649A2C91BC9000025676 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		904664862C91BBD100025676 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				904664852C91BBD100025676 /* GUIChess.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		904664872C91BBD100025676 /* GUIChess */ = {
+			isa = PBXGroup;
+			children = (
+				904664F42C91E3E000025676 /* newChess */,
+				9046648B2C91BBD300025676 /* Assets.xcassets */,
+				904664922C91BBD300025676 /* GUIChess.entitlements */,
+				904664AF2C91C7CF00025676 /* GPTBoard.cpp */,
+				9046650D2C9217AF00025676 /* 02_getting_an_image_on_the_screen.cpp */,
+			);
+			path = GUIChess;
+			sourceTree = "<group>";
+		};
+		9046649A2C91BC9000025676 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				904664AC2C91C2E000025676 /* SDL2_image.framework */,
+				9046649B2C91BC9000025676 /* SDL2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		904664DD2C91E3E000025676 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				904665102C921AE400025676 /* TextureManager.hpp */,
+				904664D82C91E2D900025676 /* View.hpp */,
+				904664DA2C91E3E000025676 /* Controller.hpp */,
+				904664DB2C91E3E000025676 /* Model.hpp */,
+				904664DC2C91E3E000025676 /* Move.hpp */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		904664E52C91E3E000025676 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				904664DE2C91E3E000025676 /* Bishop.hpp */,
+				904664DF2C91E3E000025676 /* King.hpp */,
+				904664E02C91E3E000025676 /* Knight.hpp */,
+				904664E12C91E3E000025676 /* Pawn.hpp */,
+				904664E22C91E3E000025676 /* Piece.hpp */,
+				904664E32C91E3E000025676 /* Queen.hpp */,
+				904664E42C91E3E000025676 /* Rook.hpp */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		904664ED2C91E3E000025676 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				904664E62C91E3E000025676 /* Bishop.cpp */,
+				904664E72C91E3E000025676 /* King.cpp */,
+				904664E82C91E3E000025676 /* Knight.cpp */,
+				904664E92C91E3E000025676 /* Pawn.cpp */,
+				904664EA2C91E3E000025676 /* Piece.cpp */,
+				904664EB2C91E3E000025676 /* Queen.cpp */,
+				904664EC2C91E3E000025676 /* Rook.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		904664EE2C91E3E000025676 /* Pieces */ = {
+			isa = PBXGroup;
+			children = (
+				904664E52C91E3E000025676 /* include */,
+				904664ED2C91E3E000025676 /* src */,
+			);
+			path = Pieces;
+			sourceTree = "<group>";
+		};
+		904664F22C91E3E000025676 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9046650F2C921AE400025676 /* TextureManager.cpp */,
+				904664D72C91E2D900025676 /* View.cpp */,
+				904664EF2C91E3E000025676 /* Controller.cpp */,
+				904664F02C91E3E000025676 /* Model.cpp */,
+				904664F12C91E3E000025676 /* Move.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		904664F42C91E3E000025676 /* newChess */ = {
+			isa = PBXGroup;
+			children = (
+				9046651D2C92245B00025676 /* Images */,
+				904664F32C91E3E000025676 /* main.cpp */,
+				904664F22C91E3E000025676 /* src */,
+				904664DD2C91E3E000025676 /* include */,
+				904664EE2C91E3E000025676 /* Pieces */,
+			);
+			path = newChess;
+			sourceTree = "<group>";
+		};
+		9046651D2C92245B00025676 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9046652B2C92540600025676 /* WRook.jpeg */,
+				9046652A2C92540600025676 /* WQueen.jpeg */,
+				904665292C92540600025676 /* WPawn.jpeg */,
+				904665282C92540600025676 /* WKnight.jpeg */,
+				904665272C92540600025676 /* WKing.jpeg */,
+				904665262C92540600025676 /* WBishop.jpeg */,
+				904665242C924A6500025676 /* BBishop.png */,
+				904665182C92245B00025676 /* BKing.jpeg */,
+				904665192C92245B00025676 /* BKnight.jpeg */,
+				9046651A2C92245B00025676 /* BPawn.jpeg */,
+				9046651B2C92245B00025676 /* BQueen.jpeg */,
+				9046651C2C92245B00025676 /* BRook.jpeg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		904664842C91BBD100025676 /* GUIChess */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 904664952C91BBD300025676 /* Build configuration list for PBXNativeTarget "GUIChess" */;
+			buildPhases = (
+				904664812C91BBD100025676 /* Sources */,
+				904664822C91BBD100025676 /* Frameworks */,
+				904664832C91BBD100025676 /* Resources */,
+				9046649E2C91BC9000025676 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GUIChess;
+			productName = GUIChess;
+			productReference = 904664852C91BBD100025676 /* GUIChess.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9046647D2C91BBD100025676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					904664842C91BBD100025676 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 904664802C91BBD100025676 /* Build configuration list for PBXProject "GUIChess" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9046647C2C91BBD100025676;
+			productRefGroup = 904664862C91BBD100025676 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				904664842C91BBD100025676 /* GUIChess */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		904664832C91BBD100025676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9046652F2C92540600025676 /* WKnight.jpeg in Resources */,
+				9046648C2C91BBD300025676 /* Assets.xcassets in Resources */,
+				904665232C92245B00025676 /* BRook.jpeg in Resources */,
+				9046652E2C92540600025676 /* WKing.jpeg in Resources */,
+				904665302C92540600025676 /* WPawn.jpeg in Resources */,
+				904665222C92245B00025676 /* BQueen.jpeg in Resources */,
+				904665212C92245B00025676 /* BPawn.jpeg in Resources */,
+				9046652D2C92540600025676 /* WBishop.jpeg in Resources */,
+				904665322C92540600025676 /* WRook.jpeg in Resources */,
+				904665312C92540600025676 /* WQueen.jpeg in Resources */,
+				904665252C924A6500025676 /* BBishop.png in Resources */,
+				9046651F2C92245B00025676 /* BKing.jpeg in Resources */,
+				904665202C92245B00025676 /* BKnight.jpeg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		904664812C91BBD100025676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				904664FE2C91E3E000025676 /* Move.cpp in Sources */,
+				904664FB2C91E3E000025676 /* Rook.cpp in Sources */,
+				904664FA2C91E3E000025676 /* Queen.cpp in Sources */,
+				904664D92C91E2D900025676 /* View.cpp in Sources */,
+				904664F52C91E3E000025676 /* Bishop.cpp in Sources */,
+				904664F92C91E3E000025676 /* Piece.cpp in Sources */,
+				9046650E2C9217AF00025676 /* 02_getting_an_image_on_the_screen.cpp in Sources */,
+				904664F72C91E3E000025676 /* Knight.cpp in Sources */,
+				904664FD2C91E3E000025676 /* Model.cpp in Sources */,
+				904664F82C91E3E000025676 /* Pawn.cpp in Sources */,
+				904664FC2C91E3E000025676 /* Controller.cpp in Sources */,
+				904664FF2C91E3E000025676 /* main.cpp in Sources */,
+				904664F62C91E3E000025676 /* King.cpp in Sources */,
+				904664B02C91C7CF00025676 /* GPTBoard.cpp in Sources */,
+				904665112C921AE400025676 /* TextureManager.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		904664932C91BBD300025676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		904664942C91BBD300025676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		904664962C91BBD300025676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GUIChess/GUIChess.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V8S6S975CD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DF.GUIChess;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		904664972C91BBD300025676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GUIChess/GUIChess.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V8S6S975CD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DF.GUIChess;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		904664802C91BBD100025676 /* Build configuration list for PBXProject "GUIChess" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				904664932C91BBD300025676 /* Debug */,
+				904664942C91BBD300025676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		904664952C91BBD300025676 /* Build configuration list for PBXNativeTarget "GUIChess" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				904664962C91BBD300025676 /* Debug */,
+				904664972C91BBD300025676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9046647D2C91BBD100025676 /* Project object */;
+}
