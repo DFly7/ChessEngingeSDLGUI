@@ -17,6 +17,13 @@ int Bishop::getValue() const{
     return 3;
 }
 
+Bishop::~Bishop()  {
+    std::cout << "Bishop destructor called" << std::endl;
+}
+
+Bishop* Bishop::clone() const { return new Bishop(*this); }
+
+
 std::vector<Move> Bishop::GenMoves(Piece* Board[8][8], int r, int c) const{
     std::vector<Move> legalMoves;
     

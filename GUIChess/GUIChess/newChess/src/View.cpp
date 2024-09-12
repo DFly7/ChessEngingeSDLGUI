@@ -131,17 +131,6 @@ void View::renderSelect(int x, int y){
     SDL_Rect fillRect = { x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE }; // x, y, width, height
     SDL_SetRenderDrawColor(renderer, 100, 149, 237, 128); // Blue color with 50% transparency
     SDL_RenderFillRect(renderer, &fillRect);
-    
-//    std::vector<Move> legalMoves;
-//    
-//    legalMoves = controller->GetPieceMoves(7-y, x, 1);
-//    
-//    Move mo = legalMoves[0];
-//    
-//    SDL_Rect fillRect1 = { mo.endR*TILE_SIZE, (mo.endC+7)*TILE_SIZE, TILE_SIZE, TILE_SIZE }; // x, y, width, height
-//    SDL_SetRenderDrawColor(renderer, 100, 149, 237, 128); // Blue color with 50% transparency
-//    SDL_RenderFillRect(renderer, &fillRect1);
-    
 }
 
 
@@ -165,8 +154,7 @@ void View::handleEvents(SDL_Event& e){
             isCLick = !isCLick;
             endX = x/TILE_SIZE;
             endY = y/TILE_SIZE;
-            
-            controller->validateMove({'p', 7-clickedY,clickedX, 7-endY, endX});
+            controller->Makemove(7-clickedY,clickedX, 7-endY, endX, model->getPlayer());
         }
         else{
             isCLick = !isCLick;

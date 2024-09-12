@@ -18,6 +18,9 @@ public:
     
     char getType() const override;
     int getValue() const override;
+    Bishop* clone() const override;
+    ~Bishop() override;
+
     std::vector<Move> GenMoves(Piece* Board[8][8], int r, int c) const override;
 };
 

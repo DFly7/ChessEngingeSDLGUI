@@ -19,6 +19,11 @@ int Queen::getValue() const{
     return 10;
 }
 
+Queen* Queen::clone() const { return new Queen(*this); }
+
+Queen::~Queen()  {
+    std::cout << "Queen destructor called" << std::endl;
+}
 
 std::vector<Move> Queen::GenMoves(Piece* Board[8][8], int r, int c) const{
     std::vector<Move> legalMoves;

@@ -18,6 +18,12 @@ int King::getValue() const{
     return 1000;
 }
 
+King* King::clone() const { return new King(*this); }
+
+King::~King()  {
+    std::cout << "King destructor called" << std::endl;
+}
+
 std::vector<Move> King::GenMoves(Piece* Board[8][8], int r, int c) const{
     std::vector<Move> legalMoves;
     

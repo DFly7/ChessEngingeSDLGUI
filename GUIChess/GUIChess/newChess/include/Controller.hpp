@@ -19,12 +19,22 @@ public:
     Controller();
     void setModel(Model* model);
     void gameLoop();
-    bool Makemove(char name[5], int player);
+    bool Makemove(int startRow, int startCol, int endRow, int endCol, int player);
     bool validateMove(Move move);
-    std::vector<Move> GetPieceMoves(int r, int c, int player);
     std::vector<Move> generateLegalMoves(Piece* board[8][8], int player);
-    std::vector<Move> PieceMoves(char type, int color);
-    Move makeAIMove();
+    void makeAIMove();
+    bool kingInCheck();
+    std::vector<Move> getLegalCheckMoves(Piece* board[8][8]);
+    bool checkMate();
+    int eval(Piece* board[8][8]);
+    int miniMax(Piece* board[8][8], int depth, bool maxPlayer, Move*& best);
+    
+    void deleteBoard(Piece* board[8][8]);
+    void deepCopyBoard(Piece* board[8][8], Piece* newBoard[8][8]);
+    void SimMakeMove(Piece* board[8][8], Move move);
+    void printBoard(Piece* board[8][8]);
+
+
     };
 
 #endif /* Controller_hpp */

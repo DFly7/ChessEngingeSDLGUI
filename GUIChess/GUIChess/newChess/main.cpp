@@ -30,12 +30,40 @@ int main(int argc, const char * argv[]) {
     
     std::cout << "Hello, World!\n";
     std::string start = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
-    Model* model1 = new Model("rnbqkbnr/ppp1p1pp/3p1p2/8/3B1N2/8/PPPPPPPP/RN1QKB1R");
-        
+    Model* model1 = new Model("4k3/1r6/7p/2bP4/4P3/1R3P2/P1P2NPP/4KB1R");
+//    "4k3/1r6/7p/2bP4/4P3/1R3P2/P1P2NPP/4KB1R"
     Controller* control = new Controller();
     control->setModel(model1);
     
-    std::cout << "Current working directory: " << std::filesystem::current_path() << std::endl;
+//    model1->printBoard(1);
+//    
+//    control->makeAIMove();
+//    model1->printBoard(1);
+
+
+    
+//    Move *best = nullptr;
+//    control->miniMax(model1->board, 1, true, best);
+//    
+//    if (best != nullptr){
+//        printf("move %c, %d, %d\n", best->name, best->endR, best->endC);
+//    }
+//    model1->printBoard(1);
+//    
+//    Move input;
+//    input.name = best->name;
+//    input.startR = best->startR;
+//    input.startC = best->startC;
+//    input.endR = best->endR;
+//    input.endC = best->endC;
+//    
+//    model1->InputMove(input);
+//    
+//    model1->printBoard(1);
+
+    
+//    control->gameLoop();
+    
 
     if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG)) {
         std::cerr << "IMG_Init Error: " << IMG_GetError() << std::endl;
@@ -47,6 +75,7 @@ int main(int argc, const char * argv[]) {
     if (!view.init()) {
         return 1; // Initialization failed
     }
+
 
     view.run();
     

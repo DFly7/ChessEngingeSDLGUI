@@ -24,6 +24,10 @@
 #include "../Pieces/include/Bishop.hpp"
 
 #include "../include/Move.hpp"
+struct Position{
+    int r;
+    int c;
+};
 
 class Model {
 public:
@@ -32,6 +36,8 @@ public:
     int playerMove;
     bool isFinished;
     int AIplayer;
+    Position* Bking;
+    Position* Wking;
 
     Model();
     Model(std::string fen);
@@ -39,9 +45,9 @@ public:
     void initializeBoard();
     void printBoard(int player);
 
-    void makeMove(Move move);
+    void InputMove(Move move);
     void setPlayer(int p);
-    void setFinished(int f);
+    void setFinished(bool f);
     int getPlayer();
     int getFinished();
 

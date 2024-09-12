@@ -10,6 +10,8 @@
 
 #include <stdio.h>
 #include <vector>
+#include <iostream>
+
 
 #include "Move.hpp"
 
@@ -20,7 +22,9 @@ public:
     Piece(int color);
     int getColor() const;
     bool isOnBoard(int row, int col) const;
-
+    
+    virtual ~Piece();
+    virtual Piece* clone() const = 0; // Pure virtual function for cloning
     virtual char getType() const = 0;
     virtual int getValue() const = 0;
     virtual std::vector<Move> GenMoves(Piece* Board[8][8], int r, int c) const = 0;

@@ -15,8 +15,11 @@ class Pawn : public Piece{
 public:
     Pawn(int color);
      
+    ~Pawn() override;
     char getType() const override;
     int getValue() const override;
+    Pawn* clone() const override;
+
     std::vector<Move> GenMoves(Piece* Board[8][8], int r, int c) const override;
 };
 

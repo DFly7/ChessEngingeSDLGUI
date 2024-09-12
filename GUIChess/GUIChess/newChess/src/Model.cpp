@@ -10,6 +10,8 @@
 #include <iostream>
 #include <cctype>
 
+#include <memory> // For smart pointers
+
 
 #include "Model.hpp"
 
@@ -25,24 +27,42 @@ Model::Model(std::string fen){
         this->isFinished = false;
         this->AIplayer = 2;
     
+    Wking = new Position();
+    Wking->r = -1;
+    Wking->c = -1;
+    
+    Bking = new Position();
+    Bking->r = -1;
+    Bking->c = -1;
+    
         initializeBoard();
     }
     
-void Model::makeMove(Move move){
+void Model::InputMove(Move move){
     Piece* temp = board[move.startR][move.startC];
+    printf("type Temp:%c\n", temp->getType());
+    if(temp->getType() == 'k'){
+        Bking->r = move.endR;
+        Bking->c = move.endC;
+    }
+    if(temp->getType() == 'K'){
+        Wking->r = move.endR;
+        Wking->c = move.endC;
+    }
+    
     board[move.startR][move.startC] = nullptr;
     
     board[move.endR][move.endC] = temp;
     
     playerMove = (playerMove == 1) ? 2 : 1;
-    printf("player Move %d", playerMove);
+    printf("player Move %d\n", playerMove);
 }
     
     void Model::setPlayer(int p){
         playerMove = p;
     };
     
-    void Model::setFinished(int f){
+    void Model::setFinished(bool f){
         isFinished = f;
     };
     
@@ -84,6 +104,8 @@ void Model::makeMove(Move move){
                 }
                 else if (fen[i] == 'K'){
                     board[row][col] = new King(1);
+                    Wking->r = row;
+                    Wking->c = col;
                 }
                 else if (fen[i] == 'Q'){
                     board[row][col] = new Queen(1);
@@ -104,6 +126,8 @@ void Model::makeMove(Move move){
                 }
                 else if (fen[i] == 'k'){
                     board[row][col] = new King(2);
+                    Bking->r = row;
+                    Bking->c = col;
                 }
                 else if (fen[i] == 'q'){
                     board[row][col] = new Queen(2);

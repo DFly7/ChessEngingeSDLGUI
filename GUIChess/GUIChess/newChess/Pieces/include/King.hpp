@@ -16,8 +16,11 @@ class King: public Piece{
 public:
     King(int color);
     
+    ~King() override;
     char getType() const override;
     int getValue() const override;
+    King* clone() const override;
+
     std::vector<Move> GenMoves(Piece* Board[8][8], int r, int c) const override;
 };
 

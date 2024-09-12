@@ -10,6 +10,9 @@
 Piece::Piece(int color){
     this->color = color;
     }
+Piece::~Piece() {
+        std::cout << "Piece destructor called" << std::endl;
+    }
 
 int Piece::getColor() const{
     return color;

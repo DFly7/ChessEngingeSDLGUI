@@ -18,6 +18,12 @@ int Pawn::getValue() const{
     return 1;
 }
 
+Pawn* Pawn::clone() const { return new Pawn(*this); }
+
+Pawn::~Pawn()  {
+    std::cout << "Pawn destructor called" << std::endl;
+}
+
 std::vector<Move> Pawn::GenMoves(Piece* Board[8][8], int r, int c) const{
     std::vector<Move> legalMoves;
     

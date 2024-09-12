@@ -18,6 +18,12 @@ int Rook::getValue() const{
     return 5;
 }
 
+Rook* Rook::clone() const { return new Rook(*this); }
+
+Rook::~Rook()  {
+    std::cout << "Rook destructor called" << std::endl;
+}
+
 std::vector<Move> Rook::GenMoves(Piece* Board[8][8], int r, int c) const{
     std::vector<Move> legalMoves;
     

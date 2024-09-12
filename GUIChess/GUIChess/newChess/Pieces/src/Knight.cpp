@@ -19,6 +19,12 @@ int Knight::getValue() const{
     return 3;
 }
 
+Knight* Knight::clone() const { return new Knight(*this); }
+
+Knight::~Knight()  {
+    std::cout << "Knight destructor called" << std::endl;
+}
+
 std::vector<Move> Knight::GenMoves(Piece* Board[8][8], int r, int c) const{
     std::vector<Move> legalMoves;
     
