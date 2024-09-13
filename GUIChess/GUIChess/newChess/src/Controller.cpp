@@ -10,6 +10,7 @@
 #include <unordered_map>
 #include <vector>
 #include <iostream>
+#include <algorithm>  // For std::max() and std::min()
 
 #include <limits> // For std::numeric_limits
 
@@ -176,6 +177,8 @@ int Controller::eval(Piece* board[8][8]){
 
 void Controller::makeAIMove(){
     int minEval = std::numeric_limits<int>::max();
+    int alpha = std::numeric_limits<int>::min();
+    int beta = std::numeric_limits<int>::max();
     Move best;
     std::vector<Move> legalMoves;
     legalMoves = generateLegalMoves(model1->board, 2);
@@ -185,14 +188,14 @@ void Controller::makeAIMove(){
         deepCopyBoard(model1->board, newBoared);
         SimMakeMove(newBoared, m);
         printBoard(newBoared);
-        outEV = miniMax(newBoared, 2, true);
+        outEV = miniMax(newBoared, 2, true, alpha, beta);
         if(outEV<minEval){
             minEval = outEV;
             best = m;
         }
+        beta = std::min(minEval, beta);
     }
     model1->InputMove(best);
-
 }
     
     
@@ -200,7 +203,7 @@ void Controller::makeAIMove(){
 //    model1->InputMove(input);
 
 
-int Controller::miniMax(Piece* board[8][8], int depth, bool maximise){
+int Controller::miniMax(Piece* board[8][8], int depth, bool maximise, int alpha, int beta){
     if(depth == 0){
         return eval(board);
     }
@@ -216,10 +219,17 @@ int Controller::miniMax(Piece* board[8][8], int depth, bool maximise){
             deepCopyBoard(board, newBoared);
             SimMakeMove(newBoared, m);
             printBoard(newBoared);
-            outEV = miniMax(newBoared, depth-1, false);
+            outEV = miniMax(newBoared, depth-1, false, alpha, beta);
             if(outEV>maxEval){
                 maxEval = outEV;
             }
+            alpha = std::max(alpha, outEV);
+
+            if (beta <= alpha) {
+                // Prune the branch, since the minimizing player would never allow this outcome
+                break;
+            }
+            
         }
         return maxEval;
     }
@@ -235,9 +245,14 @@ int Controller::miniMax(Piece* board[8][8], int depth, bool maximise){
             deepCopyBoard(board, newBoared);
             SimMakeMove(newBoared, m);
             printBoard(newBoared);
-            outEV = miniMax(newBoared, depth-1, true);
+            outEV = miniMax(newBoared, depth-1, true, alpha, beta);
             if(outEV<minEval){
                 minEval = outEV;
+            }
+            beta = std::min(beta, outEV);
+            if (beta <= alpha) {
+                // Prune the branch, since the maximizing player would never allow this outcome
+                break;
             }
         }
         return minEval;

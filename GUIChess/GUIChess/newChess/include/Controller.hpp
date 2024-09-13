@@ -27,7 +27,7 @@ public:
     std::vector<Move> getLegalCheckMoves(Piece* board[8][8]);
     bool checkMate();
     int eval(Piece* board[8][8]);
-    int miniMax(Piece* board[8][8], int depth, bool maxPlayer);
+    int miniMax(Piece* board[8][8], int depth, bool maxPlayer, int alpha, int beta);
     
     void deleteBoard(Piece* board[8][8]);
     void deepCopyBoard(Piece* board[8][8], Piece* newBoard[8][8]);
