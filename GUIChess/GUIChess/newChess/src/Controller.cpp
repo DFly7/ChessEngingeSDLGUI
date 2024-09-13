@@ -129,55 +129,6 @@ std::vector<Move> Controller::generateLegalMoves(Piece* board[8][8], int player)
     return legalMoves;
 }
 
-void Controller::makeAIMove(){
-    Move *best = nullptr;
-    miniMax(model1->board, 3, false, best);
-    
-    if (best != nullptr){
-        printf("HEREEEE move %c, %d, %d, %d, %d\n", best->name, best->startR, best->startC,best->endR, best->endC);
-    }
-    
-    Move input;
-    input.name = best->name;
-    input.startR = best->startR;
-    input.startC = best->startC;
-    input.endR = best->endR;
-    input.endC = best->endC;
-    
-    printf("HEREEEE move %c, %d, %d, %d, %d\n", input.name,input.startR,input.startC,input.endR,input.endC);
-
-    
-    model1->InputMove(input);
-};
-
-
-//Random Move
-//Move Controller::makeAIMove(){
-//    Move move;
-//    std::vector<Move> legalMoves;
-//
-//    legalMoves = generateLegalMoves(model1->board, model1->getPlayer());
-//
-//    std::random_device rd;  // Obtain a random number from hardware
-//    std::mt19937 gen(rd()); // Seed the generator
-//
-//    std::uniform_int_distribution<int> dis(0, static_cast<int>(legalMoves.size() - 1)); // Define the range
-//
-//    // Generate a random index
-//    size_t index = dis(gen);
-//
-//    // Return the random element from the vector
-//    if(legalMoves.empty()){
-//        printf("Legal Moves is EMpty");
-//        
-//        return move;
-//    }
-////    validateMove(legalMoves[index]);
-//    model1->InputMove(legalMoves[index]);
-//    return legalMoves[index];
-//}
-
-
 bool Controller::kingInCheck(){
     std::vector<Move> legalMoves;
 
@@ -223,14 +174,38 @@ int Controller::eval(Piece* board[8][8]){
     return ev;
 }
 
-int Controller::miniMax(Piece* board[8][8], int depth, bool maximise, Move*& best){
+void Controller::makeAIMove(){
+    int minEval = std::numeric_limits<int>::max();
+    Move best;
+    std::vector<Move> legalMoves;
+    legalMoves = generateLegalMoves(model1->board, 2);
+    int outEV;
+    for(Move m : legalMoves) {
+        Piece* newBoared[8][8];
+        deepCopyBoard(model1->board, newBoared);
+        SimMakeMove(newBoared, m);
+        printBoard(newBoared);
+        outEV = miniMax(newBoared, 2, true);
+        if(outEV<minEval){
+            minEval = outEV;
+            best = m;
+        }
+    }
+    model1->InputMove(best);
+
+}
+    
+    
+    
+//    model1->InputMove(input);
+
+
+int Controller::miniMax(Piece* board[8][8], int depth, bool maximise){
     if(depth == 0){
         return eval(board);
     }
     
     if(maximise){
-        Move* bestMove = nullptr;
-
         std::vector<Move> legalMoves;
         legalMoves = generateLegalMoves(board, 1);
         
@@ -241,27 +216,14 @@ int Controller::miniMax(Piece* board[8][8], int depth, bool maximise, Move*& bes
             deepCopyBoard(board, newBoared);
             SimMakeMove(newBoared, m);
             printBoard(newBoared);
-            outEV = miniMax(newBoared, depth-1, false, best);
+            outEV = miniMax(newBoared, depth-1, false);
             if(outEV>maxEval){
                 maxEval = outEV;
-                if(bestMove){
-                    delete(bestMove);
-                }
-                bestMove = new Move();
-                bestMove->name = m.name;
-                bestMove->startR = m.startR;
-                bestMove->startC = m.startC;
-                bestMove->endR = m.endR;
-                bestMove->endC = m.endC;
-                
-                best = bestMove;
             }
         }
         return maxEval;
     }
     else{
-        Move* bestMove = nullptr;
-
         std::vector<Move> legalMoves;
         legalMoves = generateLegalMoves(board, 2);
         
@@ -273,43 +235,14 @@ int Controller::miniMax(Piece* board[8][8], int depth, bool maximise, Move*& bes
             deepCopyBoard(board, newBoared);
             SimMakeMove(newBoared, m);
             printBoard(newBoared);
-            outEV = miniMax(newBoared, depth-1, true, best);
+            outEV = miniMax(newBoared, depth-1, true);
             if(outEV<minEval){
                 minEval = outEV;
-                if(bestMove){
-                    delete(bestMove);
-                }
-                bestMove = new Move();
-                bestMove->name = m.name;
-                bestMove->startR = m.startR;
-                bestMove->startC = m.startC;
-                bestMove->endR = m.endR;
-                bestMove->endC = m.endC;
-                
-                best = bestMove;
             }
         }
         return minEval;
     }
 }
-
-//        if(outEV<ev){
-//            printf("LESS\n");
-//            ev = outEV;
-//            printf("Move %c,%d,%d\n",m.name,m.endR,m.endC);
-//            if(bestMove){
-//                delete(bestMove);
-//            }
-//            bestMove = new Move();
-//            bestMove->name = m.name;
-//            bestMove->startR = m.startR;
-//            bestMove->startC = m.startC;
-//            bestMove->endR = m.endR;
-//            bestMove->endC = m.endC;
-//        }
-//    }
-//    best = bestMove;
-//    return 1;
 
 //CHAT GPT TALKING ABOUT AN UNDO MOVE
 //
@@ -416,40 +349,6 @@ int Controller::miniMax(Piece* board[8][8], int depth, bool maximise, Move*& bes
 //    return 0;
 //}
 //
-
-//
-//int Controller::miniMax(Piece* board[8][8], int depth, bool maximise, Move*& best){
-//    std::vector<Move> legalMoves;
-//    
-//    Move* bestMove = nullptr;
-//    
-//    legalMoves = generateLegalMoves(board, 2);
-//    int ev = 100;
-//    int outEV;
-//    for (Move m : legalMoves) {
-//        Piece* newBoared[8][8];
-//        deepCopyBoard(board, newBoared);
-//        SimMakeMove(newBoared, m);
-//        printBoard(newBoared);
-//        outEV = eval(newBoared);
-//        if(outEV<ev){
-//            printf("LESS\n");
-//            ev = outEV;
-//            printf("Move %c,%d,%d\n",m.name,m.endR,m.endC);
-//            if(bestMove){
-//                delete(bestMove);
-//            }
-//            bestMove = new Move();
-//            bestMove->name = m.name;
-//            bestMove->startR = m.startR;
-//            bestMove->startC = m.startC;
-//            bestMove->endR = m.endR;
-//            bestMove->endC = m.endC;
-//        }
-//    }
-//    best = bestMove;
-//    return 1;
-//}
 
 void Controller::deleteBoard(Piece* board[8][8]) {
     // Iterate through each cell in the 2D array

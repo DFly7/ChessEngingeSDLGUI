@@ -30,7 +30,7 @@ int main(int argc, const char * argv[]) {
     
     std::cout << "Hello, World!\n";
     std::string start = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
-    Model* model1 = new Model("4k3/1r6/7p/2bP4/4P3/1R3P2/P1P2NPP/4KB1R");
+    Model* model1 = new Model("r3kbnr/p3pppp/2q5/8/4B3/2N5/PPPPPPPP/R1BQK1NR");
 //    "4k3/1r6/7p/2bP4/4P3/1R3P2/P1P2NPP/4KB1R"
     Controller* control = new Controller();
     control->setModel(model1);
